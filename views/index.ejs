@@ -3,15 +3,17 @@
   <%- include("partials/head.ejs") %>
   <body>
     <a href="/about">About</a>
-    <h1 class="logo-text">Ding</h1>
-    <form action="/search" method="POST">
-      <input
-        type="text"
-        name="search"
-        id="search"
-        placeholder="What's on your mind?"
-      />
-      <button type="submit">Search</button>
-    </form>
+    <div class="search-container">
+      <h1 class="logo-text">Ding</h1>
+      <form action="/search" method="POST">
+        <input
+          type="text"
+          name="search"
+          id="search"
+          placeholder="What's on your mind?"
+        />
+        <button type="submit">Search</button>
+      </form>
+    </div>
   </body>
 </html>
