@@ -25,6 +25,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: -8rem;
 }
 
 .search-logo {
@@ -42,26 +43,33 @@ body {
 .search-input {
   height: 3.2rem;
   border-radius: 100px;
-  width: 30rem;
-  border: none;
+  width: 32rem;
+  border: 3px solid var(--container);
   font-size: 1.1rem;
   padding: 0 1rem;
   flex: 1;
   outline: none;
-  box-shadow: 0 0 0 4px var(--container);
+  box-sizing: border-box;
+  background-color: var(--background);
+  transition: 0.1s ease-in-out;
 }
 
 .search-input::placeholder {
   color: var(--text-light);
 }
 
+.search-input:focus::placeholder {
+  color: transparent;
+}
+
+.search-input:hover,
 .search-input:focus {
-  box-shadow: 0 0 0 6px var(--container);
+  background-color: var(--container);
+  border-color: transparent;
 }
 
 .search-btn {
   background-color: var(--primary);
-  border: 3;
   border-radius: 100px;
   color: white;
   height: 3.2rem;
@@ -76,5 +84,12 @@ a {
   position: absolute;
   top: 0;
   right: 0;
-  margin: 1rem;
+  margin: 1.5rem;
+  text-decoration: none;
+  color: var(--primary);
+  text-decoration-color: var(--primary);
+}
+
+a:hover {
+  text-decoration: underline;
 }
