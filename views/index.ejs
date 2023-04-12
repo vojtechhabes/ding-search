@@ -4,15 +4,18 @@
   <body>
     <a href="/about">About</a>
     <div class="search-container">
-      <h1 class="logo-text">Ding</h1>
-      <form action="/search" method="POST">
+      <h1 class="search-logo">Ding</h1>
+      <form action="/search" method="POST" class="search-form">
         <input
           type="text"
           name="search"
           id="search"
           placeholder="What's on your mind?"
+          class="search-input"
         />
-        <button type="submit">Search</button>
+        <button type="submit" class="search-btn">
+          <span class="material-symbols-rounded"> arrow_right_alt </span>
+        </button>
       </form>
     </div>
   </body>
