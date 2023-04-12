@@ -1,7 +1,14 @@
 function inputFocus() {
   document.getElementById("searchInput").focus();
 }
-window.onkeydown = inputFocus;
+
+function validateForm() {
+  var x = document.getElementById("searchInput").value;
+  if (x == "") {
+    return false;
+  }
+}
+
 const phrases = [
   "What's on your mind?",
   "What are you thinking about?",
@@ -14,6 +21,9 @@ const phrases = [
   "What are you searching for?",
   "What are you looking for?",
 ];
+
+window.onkeydown = inputFocus;
+
 const searchInput = document.getElementById("searchInput");
 const randomIndex = Math.floor(Math.random() * phrases.length);
 searchInput.placeholder = phrases[randomIndex];

@@ -52,6 +52,7 @@ body {
   box-sizing: border-box;
   background-color: var(--background);
   transition: 0.1s ease-in-out;
+  font-family: "Inter", sans-serif;
 }
 
 .search-input::placeholder {
