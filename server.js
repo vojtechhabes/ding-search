@@ -18,6 +18,9 @@ app.use(favicon(path.join(__dirname, "public", "favicon.ico")));
 const indexRouter = require("./routes/index");
 app.use("/", indexRouter);
 
+const searchRouter = require("./routes/search");
+app.use("/search", searchRouter);
+
 app.listen(port, () => {
   console.log(`Server started on port ${port}`);
 });
