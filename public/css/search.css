@@ -1,0 +1,70 @@
+header {
+  height: 5rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  border-bottom: 2px solid #ddd;
+  padding: 1.25rem 2.5rem;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  z-index: 100;
+}
+
+header .small-logo {
+  font-size: 2rem;
+  text-decoration: none;
+  font-weight: 700;
+  color: var(--primary);
+  font-family: "Poppins", sans-serif;
+}
+
+header .search-form {
+  display: flex;
+  align-items: center;
+  margin-left: 2.5rem;
+}
+
+header .search-form input {
+  border: none;
+  border-bottom: 2px solid #ddd;
+  padding: 0.3125rem;
+  font-size: 1rem;
+}
+
+header .search-form button {
+  border: none;
+  background-color: #333;
+  color: #fff;
+  padding: 0.3125rem 0.625rem;
+  margin-left: 0.625rem;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+header .links {
+  margin-left: auto;
+}
+
+header .links ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+header .links li {
+  margin-left: 2.5rem;
+}
+
+header .links a {
+  text-decoration: none;
+  color: #333;
+  font-size: 1rem;
+}
+
+.search-results {
+  margin-top: 7rem;
+}
