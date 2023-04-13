@@ -1,5 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
   <%- include("partials/head.ejs") %>
-  <body></body>
+  <body>
+    <% if (results.length === 0) { %>
+    <p>No results found.</p>
+    <% } else { %>
+    <ul>
+      <% results.forEach(result => { %>
+      <li><a href="<%= result.url %>"><%= result.title %></a></li>
+      <% }); %>
+    </ul>
+    <% } %>
+  </body>
 </html>
