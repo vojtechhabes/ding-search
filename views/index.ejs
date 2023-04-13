@@ -7,23 +7,11 @@
   <body>
     <div class="search-container">
       <h1 class="big-logo">Ding</h1>
-      <form
-        onsubmit="return validateForm()"
-        action="/search"
-        method="GET"
-        class="search-form"
-      >
-        <input
-          type="text"
-          name="q"
-          id="searchInput"
-          placeholder="What's on your mind?"
-        />
-        <button type="submit">
-          <span class="material-symbols-rounded"> arrow_right_alt </span>
-        </button>
-      </form>
+      <%- include("partials/search-form.ejs", {query: ""}) %>
     </div>
-    <script src="js/index.js"></script>
+
+    <script src="js/inputFocus.js"></script>
+    <script src="js/randomPlaceholder.js"></script>
+    <script src="js/validateForm.js"></script>
   </body>
 </html>

@@ -7,16 +7,14 @@
   <body>
     <header>
       <a href="/" class="small-logo">Ding</a>
-      <form class="search-form">
-        <input type="text" placeholder="Search..." />
-        <button type="submit">Go</button>
-      </form>
+      <%- include("partials/search-form.ejs") %>
       <nav class="links">
         <ul>
-          <li><a href="#">About</a></li>
+          <li><a href="/about">About</a></li>
         </ul>
       </nav>
     </header>
+
     <div class="search-results">
       <% if (results.length === 0) { %>
       <p>No results found.</p>
@@ -28,5 +26,9 @@
       </ul>
       <% } %>
     </div>
+
+    <script src="js/inputFocus.js"></script>
+    <script src="js/randomPlaceholder.js"></script>
+    <script src="js/validateForm.js"></script>
   </body>
 </html>

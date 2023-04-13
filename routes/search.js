@@ -37,6 +37,7 @@ router.get("/", async (req, res) => {
 
   res.render("search", {
     title: `${query} - Ding Search`,
+    query: query,
     results: results.rows,
   });
 });
