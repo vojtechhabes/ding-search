@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const { Pool } = require("pg");
 const xss = require("xss");
+const dotenv = require("dotenv");
 
 const pool = new Pool({
   user: process.env.DB_USER,
@@ -19,7 +20,7 @@ router.get("/", async (req, res) => {
     return;
   }
 
-  if (query.length > 20) {
+  if (query.length > process.env.MAX_QUERY_LENGTH) {
     res.redirect("/?tl=true");
     return;
   }
