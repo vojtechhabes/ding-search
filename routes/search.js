@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const { Pool } = require("pg");
+const xss = require("xss");
 
 const pool = new Pool({
   user: process.env.DB_USER,
@@ -11,11 +12,13 @@ const pool = new Pool({
 });
 
 router.get("/", async (req, res) => {
-  const query = req.query.q;
+  let query = req.query.q;
 
   if (!query) {
     res.redirect("/");
   }
+
+  query = xss(query);
 
   const client = await pool.connect();
 
@@ -35,10 +38,20 @@ router.get("/", async (req, res) => {
 
   client.release();
 
+  const safeResults = results.rows.map(result => {
+    return {
+      id: result.id,
+      title: xss(result.title),
+      url: xss(result.url),
+      description: xss(result.description),
+      rank: result.rank
+    }
+  });
+
   res.render("search", {
     title: `${query} - Ding Search`,
     query: query,
-    results: results.rows,
+    results: safeResults,
   });
 });
 
