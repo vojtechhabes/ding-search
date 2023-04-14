@@ -3,6 +3,7 @@
   <head>
     <%- include("partials/head.ejs") %>
     <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/search-results.css" />
   </head>
   <body>
     <header>
@@ -15,16 +16,12 @@
       </nav>
     </header>
 
-    <div class="search-results">
+    <div class="search-results-container">
       <% if (results.length === 0) { %>
       <p>No results found.</p>
-      <% } else { %>
-      <ul>
-        <% results.forEach(result => { %> <%-
-        include("partials/search-result.ejs", { title: result.title, url:
-        result.url }) %> <% }); %>
-      </ul>
-      <% } %>
+      <% } else { %> <% results.forEach(result => { %> <%-
+      include("partials/search-result.ejs", { title: result.title, url:
+      result.url }) %> <% }); %> <% } %>
     </div>
 
     <script src="js/inputFocus.js"></script>
