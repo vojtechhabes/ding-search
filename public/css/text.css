@@ -1,0 +1,15 @@
+.big-logo {
+  font-weight: 700;
+  font-size: 64px;
+  margin: 0 0 36px;
+  color: var(--primary);
+  font-family: "Poppins", sans-serif;
+}
+
+.small-logo {
+  font-size: 32px;
+  text-decoration: none;
+  font-weight: 700;
+  color: var(--primary);
+  font-family: "Poppins", sans-serif;
+}

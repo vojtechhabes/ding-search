@@ -1,0 +1,17 @@
+<form
+  onsubmit="return validateForm()"
+  action="/search"
+  method="GET"
+  class="search-form-small"
+>
+  <input
+    type="text"
+    name="q"
+    id="searchInput"
+    placeholder="What's on your mind?"
+    value="<%= query %>"
+  />
+  <button type="submit">
+    <span class="material-symbols-rounded"> arrow_right_alt </span>
+  </button>
+</form>
