@@ -38,14 +38,14 @@ router.get("/", async (req, res) => {
 
   client.release();
 
-  const safeResults = results.rows.map(result => {
+  const safeResults = results.rows.map((result) => {
     return {
       id: result.id,
       title: xss(result.title),
       url: xss(result.url),
       description: xss(result.description),
-      rank: result.rank
-    }
+      rank: result.rank,
+    };
   });
 
   res.render("search", {
