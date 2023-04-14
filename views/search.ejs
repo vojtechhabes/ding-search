@@ -20,9 +20,9 @@
       <p>No results found.</p>
       <% } else { %>
       <ul>
-        <% results.forEach(result => { %>
-        <li><a href="<%= result.url %>"><%= result.title %></a></li>
-        <% }); %>
+        <% results.forEach(result => { %> <%-
+        include("partials/search-result.ejs", { title: result.title, url:
+        result.url }) %> <% }); %>
       </ul>
       <% } %>
     </div>

@@ -1,0 +1,8 @@
+<div class="search-result">
+  <a href="<%= url.slice(0, 30) %>" title="<%= title %>">
+    <%= title.slice(0, 40) %><% if (title.length > 40) { %>...<% } %></a
+  >
+  <p title="<%= url %>">
+    <%= url.slice(0, 50) %><% if (url.length > 50) { %>...<% } %>
+  </p>
+</div>
