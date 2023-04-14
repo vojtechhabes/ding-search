@@ -1,3 +1,4 @@
+/* Small search form */
 .search-form-small {
   display: flex;
   align-items: center;
@@ -6,8 +7,8 @@
 
 .search-form-small input {
   height: 48px;
-  border-radius: 100px;
   width: 450px;
+  border-radius: 100px;
   border: none;
   font-size: 16px;
   padding: 0 14px;
@@ -27,20 +28,20 @@
 }
 
 .search-form-small button {
-  background-color: var(--primary);
-  border-radius: 100px;
-  color: var(--background);
   height: 48px;
   width: 48px;
-  cursor: pointer;
+  border-radius: 100px;
   border: none;
   margin-left: -48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background-color: var(--primary);
+  color: var(--background);
 }
 
-.search-results {
-  margin-top: 120px;
-}
-
+/* Big search form */
 .search-form-big {
   display: flex;
   align-items: center;
@@ -48,8 +49,8 @@
 
 .search-form-big input {
   height: 52px;
-  border-radius: 100px;
   width: 500px;
+  border-radius: 100px;
   border: 2px solid var(--container);
   font-size: 18px;
   padding: 0 16px;
@@ -75,13 +76,16 @@
 }
 
 .search-form-big button {
-  background-color: var(--primary);
-  border-radius: 100px;
-  color: var(--background);
   height: 52px;
   width: 52px;
-  font-size: 20px;
-  cursor: pointer;
+  border-radius: 100px;
   border: none;
-  margin-left: -52px;
+  margin-left: -48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background-color: var(--primary);
+  color: var(--background);
+  font-size: 20px;
 }
