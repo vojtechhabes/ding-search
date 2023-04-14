@@ -7,7 +7,9 @@
   <body>
     <div class="search-container">
       <h1 class="big-logo">Ding</h1>
-      <%- include("partials/search-form-big.ejs") %>
+      <%- include("partials/search-form-big.ejs") %> <% if (tl) { %>
+      <p>Oh, that was a bit too long.</p>
+      <% } %>
     </div>
 
     <script src="js/inputFocus.js"></script>

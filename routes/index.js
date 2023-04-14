@@ -5,6 +5,7 @@ router.get("/", (req, res) => {
   res.render("index", {
     title: "Ding Search",
     query: "",
+    tl: req.query.tl,
   });
 });
 

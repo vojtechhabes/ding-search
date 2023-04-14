@@ -16,6 +16,12 @@ router.get("/", async (req, res) => {
 
   if (!query) {
     res.redirect("/");
+    return;
+  }
+
+  if (query.length > 20) {
+    res.redirect("/?tl=true");
+    return;
   }
 
   query = xss(query);
