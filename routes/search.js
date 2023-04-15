@@ -37,7 +37,8 @@ router.get("/", async (req, res) => {
   from crawled
   where search @@ websearch_to_tsquery('english', $1)
   or search @@ websearch_to_tsquery('simple', $1)
-  order by rank desc;`,
+  order by rank desc
+  limit ${process.env.MAX_NUM_RESULTS};`,
     values: [query],
   };
 
