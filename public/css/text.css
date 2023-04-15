@@ -13,3 +13,24 @@
   color: var(--primary);
   font-family: "Poppins", sans-serif;
 }
+
+p {
+  font-size: 18px;
+  color: var(--text);
+  font-family: "Inter", sans-serif;
+}
+
+@media only screen and (max-width: 600px) {
+  .big-logo {
+    font-size: 48px;
+    margin-bottom: 24px;
+  }
+
+  .small-logo {
+    font-size: 24px;
+  }
+
+  p {
+    font-size: 16px;
+  }
+}

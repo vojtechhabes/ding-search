@@ -5,7 +5,10 @@ header {
   left: 0;
   width: 100%;
   background-color: var(--container);
-  padding: 20px 40px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: min(5vw, 40px);
+  padding-right: min(5vw, 40px);
   display: flex;
   justify-content: left;
   align-items: center;
@@ -33,4 +36,13 @@ header .links a {
   text-decoration: none;
   color: var(--primary);
   font-size: 16px;
+}
+
+@media only screen and (max-width: 600px) {
+  header {
+    height: 60px;
+  }
+  header .links {
+    display: none;
+  }
 }

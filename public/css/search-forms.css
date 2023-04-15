@@ -2,12 +2,13 @@
 .search-form-small {
   display: flex;
   align-items: center;
-  margin-left: 40px;
+  margin-left: min(5vw, 40px);
 }
 
 .search-form-small input {
   height: 48px;
-  width: 450px;
+  width: 50vw;
+  max-width: 450px;
   border-radius: 100px;
   border: none;
   font-size: 16px;
@@ -15,7 +16,6 @@
   flex: 1;
   outline: none;
   background-color: var(--background);
-  transition: 0.1s ease-in-out;
   font-family: "Inter", sans-serif;
 }
 
@@ -49,7 +49,8 @@
 
 .search-form-big input {
   height: 52px;
-  width: 500px;
+  width: 70vw;
+  max-width: 500px;
   border-radius: 100px;
   border: 2px solid var(--container);
   font-size: 18px;
@@ -57,7 +58,6 @@
   flex: 1;
   outline: none;
   background-color: var(--background);
-  transition: 0.1s ease-in-out;
   font-family: "Inter", sans-serif;
 }
 
@@ -89,3 +89,31 @@
   color: var(--background);
   font-size: 20px;
 }
+
+@media only screen and (max-width: 600px) {
+  /* Small search form */
+  .search-form-small input {
+    height: 40px;
+    width: 60vw;
+  }
+
+  .search-form-small button {
+    height: 40px;
+    width: 40px;
+    margin-left: -40px;
+  }
+
+  /* Big search form */
+  .search-form-big input {
+    height: 48px;
+    width: 80vw;
+    font-size: 16px;
+  }
+
+  .search-form-big button {
+    height: 48px;
+    width: 48px;
+    margin-left: -48px;
+  }
+}
+

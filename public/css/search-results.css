@@ -1,6 +1,8 @@
 .search-results-container {
   margin-top: 130px;
-  margin-left: 80px;
+  width: 70vw;
+  max-width: 700px;
+  margin-left: min(5vw, 80px);
 }
 
 .search-result {
@@ -24,4 +26,13 @@
   font-size: 12px;
   color: var(--gray);
   margin-bottom: 6px;
+}
+
+@media only screen and (max-width: 600px) {
+  .search-results-container {
+    margin-top: 90px;
+    width: auto;
+    margin-left: 0;
+    padding: 0 30px;
+  }
 }
