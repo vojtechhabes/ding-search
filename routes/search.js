@@ -63,4 +63,24 @@ router.get("/", async (req, res) => {
   });
 });
 
+router.get("/suggestions", (req, res) => {
+  let query = req.query.q;
+
+  if (!query) {
+    res.json([]);
+    return;
+  }
+
+  if (query.length > process.env.MAX_QUERY_LENGTH) {
+    res.json([]);
+    return;
+  }
+
+  query = xss(query);
+
+  const suggestions = [];
+
+  res.json(suggestions);
+});
+
 module.exports = router;
