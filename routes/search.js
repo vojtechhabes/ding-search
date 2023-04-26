@@ -3,6 +3,12 @@ const router = express.Router();
 const { Pool } = require("pg");
 const xss = require("xss");
 const dotenv = require("dotenv");
+const { Configuration, OpenAIApi } = require("openai");
+
+const configuration = new Configuration({
+  apiKey: process.env.OPENAI_API_KEY,
+});
+const openai = new OpenAIApi(configuration);
 
 const pool = new Pool({
   user: process.env.DB_USER,
@@ -63,7 +69,7 @@ router.get("/", async (req, res) => {
   });
 });
 
-router.get("/suggestions", (req, res) => {
+router.get("/suggestions", async (req, res) => {
   let query = req.query.q;
 
   if (!query) {
@@ -78,7 +84,19 @@ router.get("/suggestions", (req, res) => {
 
   query = xss(query);
 
-  const suggestions = [];
+  let completion = await openai.createChatCompletion({
+    model: "gpt-3.5-turbo",
+    temperature: 0.1,
+    max_tokens: 5,
+    messages: [
+      { role: "user", content: `Write one completion of "${query}".` },
+    ],
+  });
+
+  completion.data.choices[0].message.content =
+    completion.data.choices[0].message.content.replace(/"/g, "");
+
+  const suggestions = [completion.data.choices[0].message.content];
 
   res.json(suggestions);
 });
