@@ -99,22 +99,18 @@ router.get("/suggestions", async (req, res) => {
 
   query = xss(query);
 
-  let completion = await openai.createChatCompletion({
-    model: "gpt-3.5-turbo",
+  let completion = await openai.createCompletion({
+    model: "text-ada-001",
+    prompt: `Complete this search query:\nquery: ${query}`,
     temperature: 0.1,
-    max_tokens: 5,
-    messages: [
-      {
-        role: "user",
-        content: `Complete this search query: "${query}".`,
-      },
-    ],
+    max_tokens: 10,
+    stop: ["\n"],
   });
 
-  completion = xss(completion.data.choices[0].message.content);
+  completion = xss(completion.data.choices[0].text);
   completion = completion.replace(/"/g, "");
 
-  let suggestions = [completion];
+  let suggestions = [query + completion];
 
   res.json(suggestions);
 });
