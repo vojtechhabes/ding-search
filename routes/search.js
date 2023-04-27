@@ -82,6 +82,21 @@ router.get("/suggestions", async (req, res) => {
     return;
   }
 
+  if (query.length < 3) {
+    res.json([]);
+    return;
+  }
+
+  if (query.includes('"')) {
+    res.json([]);
+    return;
+  }
+
+  if (query.split("").every((char) => char === query[0])) {
+    res.json([]);
+    return;
+  }
+
   query = xss(query);
 
   let completion = await openai.createChatCompletion({
@@ -89,14 +104,17 @@ router.get("/suggestions", async (req, res) => {
     temperature: 0.1,
     max_tokens: 5,
     messages: [
-      { role: "user", content: `Write one completion of "${query}".` },
+      {
+        role: "user",
+        content: `Complete this search query: "${query}".`,
+      },
     ],
   });
 
-  completion.data.choices[0].message.content =
-    completion.data.choices[0].message.content.replace(/"/g, "");
+  completion = xss(completion.data.choices[0].message.content);
+  completion = completion.replace(/"/g, "");
 
-  const suggestions = [completion.data.choices[0].message.content];
+  let suggestions = [completion];
 
   res.json(suggestions);
 });
