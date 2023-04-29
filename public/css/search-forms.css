@@ -52,13 +52,15 @@
   width: 70vw;
   max-width: 500px;
   border-radius: 100px;
-  border: 2px solid var(--container);
+  border: none;
+  box-shadow: 0 0 0 2px var(--container);
   font-size: 18px;
   padding: 0 16px;
   flex: 1;
   outline: none;
   background-color: var(--background);
   font-family: "Inter", sans-serif;
+  transition: box-shadow 0.1s ease-in-out;
 }
 
 .search-form-big input::placeholder {
@@ -71,8 +73,7 @@
 
 .search-form-big input:hover,
 .search-form-big input:focus {
-  background-color: var(--container);
-  border-color: transparent;
+  box-shadow: 0 0 0 4px var(--container);
 }
 
 .search-form-big button {
@@ -80,7 +81,7 @@
   width: 52px;
   border-radius: 100px;
   border: none;
-  margin-left: -48px;
+  margin-left: -52px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -116,4 +117,3 @@
     margin-left: -48px;
   }
 }
-

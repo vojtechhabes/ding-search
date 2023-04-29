@@ -26,5 +26,5 @@ searchInput.addEventListener("input", () => {
     } catch (error) {
       console.error("Error fetching suggestions:", error);
     }
-  }, 800);
+  }, 750);
 });

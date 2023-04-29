@@ -37,10 +37,10 @@ router.get("/", async (req, res) => {
 
   const databaseQuery = {
     text: `select id, title, url, description,
-  ts_rank(search, websearch_to_tsquery('english', $1)) +
-  ts_rank(search, websearch_to_tsquery('simple', $1))
+	ts_rank(search, websearch_to_tsquery('english', $1)) +
+	ts_rank(search, websearch_to_tsquery('simple', $1))
   as rank
-  from crawled
+  from websites
   where search @@ websearch_to_tsquery('english', $1)
   or search @@ websearch_to_tsquery('simple', $1)
   order by rank desc

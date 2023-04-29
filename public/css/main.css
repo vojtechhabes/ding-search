@@ -2,8 +2,8 @@
   --primary: #2173ee;
   --background: #ffffff;
   --text: #000000;
-  --container: #2072ee14;
-  --text-light: #4271b833;
+  --container: #2072ee1f;
+  --text-light: rgba(27, 99, 207, 0.2);
   --gray: #00000080;
 }
 
