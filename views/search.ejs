@@ -3,7 +3,6 @@
   <head>
     <%- include("partials/head.ejs") %>
     <link rel="stylesheet" href="css/header.css" />
-    <link rel="stylesheet" href="css/search-results.css" />
   </head>
   <body>
     <header>
@@ -23,8 +22,5 @@
       include("partials/search-result.ejs", { title: result.title, url:
       result.url }) %> <% }); %> <% } %>
     </div>
-
-    <script src="js/inputFocus.js"></script>
-    <script src="js/validateForm.js"></script>
   </body>
 </html>
