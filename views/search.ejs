@@ -3,6 +3,7 @@
   <head>
     <%- include("partials/head.ejs") %>
     <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/search-results.css" />
   </head>
   <body>
     <header>
@@ -16,7 +17,14 @@
     </header>
 
     <div class="search-results-container">
-      <% if (results.length === 0) { %>
+      <% if (fixedSpelling) { %>
+      <p>
+        Did you mean
+        <a href="/search?q=<%= queryFixedSpelling %>"
+          ><%= queryFixedSpelling %></a
+        >?
+      </p>
+      <% } %> <% if (results.length == 0) { %>
       <p>No results found.</p>
       <% } else { %> <% results.forEach(result => { %> <%-
       include("partials/search-result.ejs", { title: result.title, url:

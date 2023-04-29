@@ -21,6 +21,8 @@ const pool = new Pool({
 router.get("/", async (req, res) => {
   let query = req.query.q;
 
+  query = xss(query);
+
   if (!query) {
     res.redirect("/");
     return;
@@ -31,7 +33,27 @@ router.get("/", async (req, res) => {
     return;
   }
 
-  query = xss(query);
+  const responsePromise = await openai.createCompletion({
+    model: "text-babbage-001",
+    prompt: `Correct this to standard English:\nOriginal: ${query}\nCorrected:`,
+    temperature: 0,
+    max_tokens: 50,
+    stop: ["\n"],
+  });
+
+  const timeoutPromise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      reject(new Error("Request timed out"));
+    }, 1500);
+  });
+
+  let queryFixedSpelling = query;
+
+  try {
+    const response = await Promise.race([responsePromise, timeoutPromise]);
+    queryFixedSpelling = response.data.choices[0].text;
+    queryFixedSpelling = xss(queryFixedSpelling);
+  } catch (error) {}
 
   const client = await pool.connect();
 
@@ -62,15 +84,32 @@ router.get("/", async (req, res) => {
     };
   });
 
+  let fixedSpelling = false;
+
+  if (queryFixedSpelling.toLowerCase() != query.toLowerCase()) {
+    if (queryFixedSpelling.length > process.env.MAX_QUERY_LENGTH) {
+    } else {
+      if (queryFixedSpelling != "") {
+        fixedSpelling = true;
+      }
+    }
+  }
+
   res.render("search", {
     title: `${query} - Ding Search`,
     query: query,
+    queryFixedSpelling: queryFixedSpelling,
+    fixedSpelling: fixedSpelling,
     results: safeResults,
   });
+
+  return;
 });
 
 router.get("/suggestions", async (req, res) => {
   let query = req.query.q;
+
+  query = xss(query);
 
   if (!query) {
     res.json([]);
@@ -97,8 +136,6 @@ router.get("/suggestions", async (req, res) => {
     return;
   }
 
-  query = xss(query);
-
   let completion = await openai.createCompletion({
     model: "text-ada-001",
     prompt: `Complete this search query:\nquery: ${query}`,
@@ -113,6 +150,8 @@ router.get("/suggestions", async (req, res) => {
   let suggestions = [query + completion];
 
   res.json(suggestions);
+
+  return;
 });
 
 module.exports = router;
