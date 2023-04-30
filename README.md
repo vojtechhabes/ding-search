@@ -10,3 +10,4 @@ Cílem projektu Ding Search je vytvořit vyhledávač, který bude schopen vyhle
 
 - Node.js
 - PostgreSQL
+- OpenAI API
