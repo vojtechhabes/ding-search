@@ -23,3 +23,13 @@ Cílem projektu Ding Search je vytvořit vyhledávač, který bude schopen vyhle
 - [ ] about stránka
 - [ ] chatbot pro odpovídání na dotazy na základě webových stránek
 - [ ] relevantnější výsledky vyhledávání
+
+## Licence
+
+Tento projekt je pod licencí [MIT](LICENSE).
+
+## Tvůrce
+
+[Vojtěch Habeš](https://www.github.com/vojhab)
+
+habes.vo.2022@ssps.cz
