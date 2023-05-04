@@ -29,7 +29,7 @@ V tomto projektu jsou používány následující npm balíčky:
 - [xss](https://www.npmjs.com/package/xss): ochrana proti XSS útokům, tedy proti vkládání škodlivého kódu do uživatelských vstupů, které se následně vykreslují na stránce
 
 
-## TODO
+## Plánované změny
 
 - [ ] dokončení našeptávání vyhledávání
 - [ ] více stránek s výsledky vyhledávání
