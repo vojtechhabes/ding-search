@@ -86,6 +86,17 @@ router.get("/", async (req, res) => {
 
   let fixedSpelling = false;
 
+  if (queryFixedSpelling[0] == " ") {
+    queryFixedSpelling = queryFixedSpelling.substring(1);
+  }
+
+  if (queryFixedSpelling[queryFixedSpelling.length - 1] == " ") {
+    queryFixedSpelling = queryFixedSpelling.substring(
+      0,
+      queryFixedSpelling.length - 1
+    );
+  }
+
   if (queryFixedSpelling.toLowerCase() != query.toLowerCase()) {
     if (queryFixedSpelling.length > process.env.MAX_QUERY_LENGTH) {
     } else {
