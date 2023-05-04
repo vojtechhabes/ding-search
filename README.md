@@ -12,9 +12,22 @@ Cílem projektu Ding Search je vytvořit vyhledávač, který bude schopen vyhle
 
 ## Použité technologie
 
-- Node.js
-- PostgreSQL
-- OpenAI API
+- [Node.js](https://nodejs.org): open-source framework pro běh JavaScriptového kódu na straně serveru
+- [PostgreSQL](https://www.postgresql.org): databáze, která nabízí široké spektrum funkcí pro správu a ukládání dat a umožňuje uživatelům efektivně ukládat a vyhledávat data
+- [OpenAI API](https://openai.com/blog/openai-api): API pro přístup k pokročilým AI modelům
+
+### npm balíčky
+
+V tomto projektu jsou používány následující npm balíčky:
+
+- [node-postgres](https://www.npmjs.com/package/pg): umožňuje přístup k PostgreSQL databázi
+- [dotenv](https://www.npmjs.com/package/dotenv): načítá proměnné z .env souboru
+- [ejs](https://www.npmjs.com/package/ejs): šablonovací systém pro generování HTML stránek
+- [express](https://www.npmjs.com/package/express): Node.js framework pro tvorbu webových aplikací a API
+- [openai](https://www.npmjs.com/package/openai): umožňuje jednoduchý přístup k OpenAI API
+- [serve-favicon](https://www.npmjs.com/package/serve-favicon): poskytuje middleware pro favicony webových stránek
+- [xss](https://www.npmjs.com/package/xss): ochrana proti XSS útokům, tedy proti vkládání škodlivého kódu do uživatelských vstupů, které se následně vykreslují na stránce
+
 
 ## TODO
 
