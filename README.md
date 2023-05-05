@@ -30,13 +30,15 @@ V tomto projektu jsou používány následující npm balíčky:
 - [serve-favicon](https://www.npmjs.com/package/serve-favicon): poskytuje middleware pro favicony webových stránek
 - [xss](https://www.npmjs.com/package/xss): ochrana proti XSS útokům, tedy proti vkládání škodlivého kódu do uživatelských vstupů, které se následně vykreslují na stránce
 
-## Plánované změny
+## Plánované změny a funkce
 
 - [ ] dokončení našeptávání vyhledávání
-- [ ] více stránek s výsledky vyhledávání
+- [ ] "nekonečný scroll" s výsledky vyhledávání
 - [ ] about stránka
 - [ ] chatbot pro odpovídání na dotazy na základě webových stránek
 - [ ] relevantnější výsledky vyhledávání
+- [ ] podpora pro více jazyků
+- [ ] personalizované výsledky
 
 ## Licence
 
