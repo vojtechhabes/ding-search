@@ -36,7 +36,7 @@ V tomto projektu jsou používány následující npm balíčky:
 - [ ] "nekonečný scroll" s výsledky vyhledávání
 - [ ] about stránka
 - [ ] chatbot pro odpovídání na dotazy na základě webových stránek
-- [ ] relevantnější výsledky vyhledávání
+- [ ] použít [pgvector](https://github.com/pgvector/pgvector) pro relevantnější výsledky
 - [ ] podpora pro více jazyků
 - [ ] personalizované výsledky
 
