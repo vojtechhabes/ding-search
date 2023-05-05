@@ -6,7 +6,7 @@ Vyhledávač napsaný v Node.js, který využívá data sesbíraná [web crawler
 
 ## Dokumentace
 
-Dokumentaci tohoto projektu najdete na [GitHub Wiki](https://github.com/vojhab/ding-search/wiki), ale jště není zcela dokončena.
+Dokumentaci tohoto projektu najdete na [GitHub Wiki](https://github.com/vojhab/ding-search/wiki), ale ještě není zcela dokončena.
 
 ## Cíl projektu
 
