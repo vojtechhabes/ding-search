@@ -2,6 +2,8 @@
 
 Vyhledávač napsaný v Node.js, který využívá data sesbíraná [web crawlerem](https://github.com/vojhab/web-crawler).
 
+![Ding search screenshot](./ding-search-safari.png)
+
 ## Dokumentace
 
 Dokumentace tohoto projektu je ještě v přípravě.
@@ -27,7 +29,6 @@ V tomto projektu jsou používány následující npm balíčky:
 - [openai](https://www.npmjs.com/package/openai): umožňuje jednoduchý přístup k OpenAI API
 - [serve-favicon](https://www.npmjs.com/package/serve-favicon): poskytuje middleware pro favicony webových stránek
 - [xss](https://www.npmjs.com/package/xss): ochrana proti XSS útokům, tedy proti vkládání škodlivého kódu do uživatelských vstupů, které se následně vykreslují na stránce
-
 
 ## Plánované změny
 
