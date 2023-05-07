@@ -10,7 +10,7 @@ Dokumentaci tohoto projektu najdete na [GitHub Wiki](https://github.com/vojhab/d
 
 ## Prezentace
 
-Prezentace Ding search a web crawleru se nachází na [vojhab.page.link/pva-prezentace](https://vojhab.page.link/pva-prezentace).
+Prezentace Ding search a [web crawleru](https://github.com/vojhab/web-crawler) se nachází na [vojhab.page.link/pva-prezentace](https://vojhab.page.link/pva-prezentace).
 
 ## Cíl projektu
 
