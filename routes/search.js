@@ -65,16 +65,8 @@ router.get("/", async (req, res) => {
   const client = await pool.connect();
 
   const databaseQuery = {
-    text: `select id, title, url, description,
-	ts_rank(search, websearch_to_tsquery('english', $1)) +
-	ts_rank(search, websearch_to_tsquery('simple', $1))
-  as rank
-  from websites
-  where search @@ websearch_to_tsquery('english', $1)
-  or search @@ websearch_to_tsquery('simple', $1)
-  order by rank desc
-  limit ${process.env.MAX_NUM_RESULTS};`,
-    values: [query],
+    text: `SELECT * FROM websites ORDER BY embeddings <-> $1 LIMIT ${process.env.MAX_NUM_RESULTS};`,
+    values: [JSON.stringify(queryEmbedding)],
   };
 
   const results = await client.query(databaseQuery);
