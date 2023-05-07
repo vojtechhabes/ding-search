@@ -25,6 +25,11 @@ router.get("/", async (req, res) => {
 
   query = xss(query);
 
+  const model = await use.load();
+
+  let queryEmbedding = await model.embed(query);
+  queryEmbedding = queryEmbedding.arraySync()[0];
+
   if (!query) {
     res.redirect("/");
     return;
