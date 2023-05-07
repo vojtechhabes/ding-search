@@ -3,6 +3,8 @@ const router = express.Router();
 const { Pool } = require("pg");
 const xss = require("xss");
 const dotenv = require("dotenv");
+require("@tensorflow/tfjs");
+const use = require("@tensorflow-models/universal-sentence-encoder");
 const { Configuration, OpenAIApi } = require("openai");
 
 const configuration = new Configuration({
