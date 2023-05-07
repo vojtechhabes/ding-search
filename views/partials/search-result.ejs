@@ -5,4 +5,8 @@
   <a href="<%= url %>" title="<%= title %>">
     <%= title.slice(0, 50) %><% if (title.length > 50) { %>...<% } %></a
   >
+  <p class="description">
+    <%= description.slice(0, 200) %><% if (description.length > 150) { %>...<% }
+    %>
+  </p>
 </div>

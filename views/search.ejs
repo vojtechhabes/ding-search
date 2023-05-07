@@ -28,7 +28,7 @@
       <p>No results found.</p>
       <% } else { %> <% results.forEach(result => { %> <%-
       include("partials/search-result.ejs", { title: result.title, url:
-      result.url }) %> <% }); %> <% } %>
+      result.url, description: result.description }) %> <% }); %> <% } %>
     </div>
   </body>
 </html>
