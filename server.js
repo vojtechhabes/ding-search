@@ -21,6 +21,9 @@ app.use("/", indexRouter);
 const searchRouter = require("./routes/search");
 app.use("/search", searchRouter);
 
+const intelligenceRouter = require("./routes/intelligence");
+app.use("/intelligence", intelligenceRouter);
+
 app.listen(port, () => {
   console.log(`Server started on port ${port}`);
 });

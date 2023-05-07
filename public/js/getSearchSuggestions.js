@@ -12,7 +12,7 @@ searchInput.addEventListener("input", () => {
     }
     try {
       console.log("Fetching suggestions...");
-      const response = await fetch(`/search/suggestions?q=${searchTerm}`);
+      const response = await fetch(`/intelligence/suggestions?q=${searchTerm}`);
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
