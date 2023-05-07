@@ -2,7 +2,7 @@
   margin-top: 130px;
   width: 70vw;
   max-width: 700px;
-  margin-left: min(5vw, 80px);
+  margin-left: min(5vw, 100px);
 }
 
 .search-result {
@@ -33,6 +33,29 @@
   color: var(--gray);
   margin-top: 8px;
   line-height: 1.5;
+}
+
+.spelling-correction {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  background-color: var(--container);
+  padding: 10px 24px;
+  width: fit-content;
+  border-radius: 22px;
+  margin-bottom: 30px;
+  gap: 14px;
+}
+
+.spelling-correction p {
+  font-size: 16px;
+  color: var(--gray);
+}
+
+.spelling-correction a {
+  text-decoration: none;
+  color: var(--primary);
+  font-size: 16px;
 }
 
 @media only screen and (max-width: 600px) {

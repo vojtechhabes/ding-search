@@ -18,12 +18,15 @@
 
     <div class="search-results-container">
       <% if (fixedSpelling) { %>
-      <p>
-        Did you mean
-        <a href="/search?q=<%= queryFixedSpelling %>"
-          ><%= queryFixedSpelling %></a
-        >?
-      </p>
+      <div class="spelling-correction">
+        <span class="material-symbols-rounded"> magic_button </span>
+        <p>
+          Did you mean
+          <a href="/search?q=<%= queryFixedSpelling %>"
+            ><%= queryFixedSpelling %></a
+          >?
+        </p>
+      </div>
       <% } %> <% if (results.length == 0) { %>
       <p>No results found.</p>
       <% } else { %> <% results.forEach(result => { %> <%-
