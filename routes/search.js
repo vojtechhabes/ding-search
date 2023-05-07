@@ -7,6 +7,8 @@ require("@tensorflow/tfjs");
 const use = require("@tensorflow-models/universal-sentence-encoder");
 const { Configuration, OpenAIApi } = require("openai");
 
+const modelPromise = use.load();
+
 const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
 });
@@ -22,10 +24,9 @@ const pool = new Pool({
 
 router.get("/", async (req, res) => {
   let query = req.query.q;
-
   query = xss(query);
 
-  const model = await use.load();
+  const model = await modelPromise;
 
   let queryEmbedding = await model.embed(query);
   queryEmbedding = queryEmbedding.arraySync()[0];

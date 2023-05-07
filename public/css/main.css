@@ -3,8 +3,8 @@
   --background: #ffffff;
   --text: #000000;
   --container: #2072ee1f;
-  --text-light: rgba(27, 99, 207, 0.2);
-  --gray: #00000080;
+  --text-light: #1b63cf33;
+  --gray: rgba(0, 0, 0, 0.8);
 }
 
 .material-symbols-rounded {
