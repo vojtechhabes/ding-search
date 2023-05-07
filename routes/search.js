@@ -3,7 +3,11 @@ const router = express.Router();
 const { Pool } = require("pg");
 const xss = require("xss");
 const dotenv = require("dotenv");
+require("@tensorflow/tfjs");
+const use = require("@tensorflow-models/universal-sentence-encoder");
 const { Configuration, OpenAIApi } = require("openai");
+
+const modelPromise = use.load();
 
 const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
@@ -20,8 +24,12 @@ const pool = new Pool({
 
 router.get("/", async (req, res) => {
   let query = req.query.q;
-
   query = xss(query);
+
+  const model = await modelPromise;
+
+  let queryEmbedding = await model.embed(query);
+  queryEmbedding = queryEmbedding.arraySync()[0];
 
   if (!query) {
     res.redirect("/");
@@ -58,16 +66,8 @@ router.get("/", async (req, res) => {
   const client = await pool.connect();
 
   const databaseQuery = {
-    text: `select id, title, url, description,
-	ts_rank(search, websearch_to_tsquery('english', $1)) +
-	ts_rank(search, websearch_to_tsquery('simple', $1))
-  as rank
-  from websites
-  where search @@ websearch_to_tsquery('english', $1)
-  or search @@ websearch_to_tsquery('simple', $1)
-  order by rank desc
-  limit ${process.env.MAX_NUM_RESULTS};`,
-    values: [query],
+    text: `SELECT * FROM websites ORDER BY embeddings <-> $1 LIMIT ${process.env.MAX_NUM_RESULTS};`,
+    values: [JSON.stringify(queryEmbedding)],
   };
 
   const results = await client.query(databaseQuery);
