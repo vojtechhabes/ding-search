@@ -1,12 +1,12 @@
 <div class="search-result">
   <p title="<%= url %>" class="url">
-    <%= url.slice(0, 50) %><% if (url.length > 50) { %>...<% } %>
+    <%= url.slice(0, 40) %><% if (url.length > 40) { %>...<% } %>
   </p>
-  <a href="<%= url %>" title="<%= title %>">
+  <a href="<%= url %>" title="<%= title %>" class="title">
     <%= title.slice(0, 50) %><% if (title.length > 50) { %>...<% } %></a
   >
   <p class="description">
-    <%= description.slice(0, 200) %><% if (description.length > 150) { %>...<% }
+    <%= description.slice(0, 200) %><% if (description.length > 200) { %>...<% }
     %>
   </p>
 </div>

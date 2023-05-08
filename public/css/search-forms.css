@@ -61,6 +61,7 @@
   background-color: var(--background);
   font-family: "Inter", sans-serif;
   transition: box-shadow 0.1s ease-in-out;
+  -webkit-appearance: none;
 }
 
 .search-form-big input::placeholder {

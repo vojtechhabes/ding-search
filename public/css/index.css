@@ -11,3 +11,7 @@ body {
   align-items: center;
   margin-top: -8%;
 }
+
+body {
+  overflow: hidden;
+}

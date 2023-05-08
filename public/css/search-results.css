@@ -11,10 +11,10 @@
   margin-bottom: 40px;
 }
 
-.search-result a {
+.search-result .title {
   text-decoration: none;
   color: var(--primary);
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 400;
 }
 
@@ -65,5 +65,15 @@
     width: auto;
     margin-left: 0;
     padding: 0 30px;
+  }
+
+  .search-result {
+    margin-bottom: 30px;
+    width: 100%;
+  }
+
+  .spelling-correction {
+    margin-top: 0;
+    max-width: 100%;
   }
 }
