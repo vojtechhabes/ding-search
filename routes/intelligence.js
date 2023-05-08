@@ -3,6 +3,19 @@ const router = express.Router();
 const xss = require("xss");
 const dotenv = require("dotenv");
 const { Configuration, OpenAIApi } = require("openai");
+const multer = require("multer");
+const fs = require("fs");
+const path = require("path");
+
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "tmp/");
+  },
+  filename: (req, file, cb) => {
+    cb(null, Date.now() + "-" + path.extname(file.originalname));
+  },
+});
+const upload = multer({ storage: storage });
 
 const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
@@ -48,6 +61,10 @@ router.get("/suggestions", async (req, res) => {
   res.json(suggestions);
 
   return;
+});
+
+router.post("/transcription", upload.single("audio"), async (req, res) => {
+  res.json(req.file);
 });
 
 module.exports = router;
