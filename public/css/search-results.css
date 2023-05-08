@@ -72,6 +72,10 @@
     width: 100%;
   }
 
+  .search-result .title {
+    font-size: 20px;
+  }
+
   .spelling-correction {
     margin-top: 0;
     max-width: 100%;

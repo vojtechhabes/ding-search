@@ -3,8 +3,10 @@
     <%= url.slice(0, 40) %><% if (url.length > 40) { %>...<% } %>
   </p>
   <a href="<%= url %>" title="<%= title %>" class="title">
-    <%= title.slice(0, 50) %><% if (title.length > 50) { %>...<% } %></a
-  >
+    <% if (title === "") { %> <%= url.slice(0, 30) %><% if (url.length > 30) {
+    %>...<% } %> <% } else { %> <%= title.slice(0, 30) %><% if (title.length >
+    40) { %>...<% } %> <% } %>
+  </a>
   <p class="description">
     <%= description.slice(0, 200) %><% if (description.length > 200) { %>...<% }
     %>
