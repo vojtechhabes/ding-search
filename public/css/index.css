@@ -15,3 +15,29 @@ body {
 body {
   overflow: hidden;
 }
+
+.voice-search-btn {
+  margin-top: 40px;
+  height: 40px;
+  width: 148px;
+  border-radius: 100px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background-color: var(--primary);
+  color: var(--background);
+  font-size: 15px;
+}
+
+.voice-search-btn span {
+  margin-right: 6px;
+  margin-left: -2px;
+}
+
+@media only screen and (max-width: 600px) {
+  .search-container {
+    margin-top: -30%;
+  }
+}

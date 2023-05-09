@@ -10,8 +10,11 @@
       <%- include("partials/search-form-big.ejs") %> <% if (tl) { %>
       <p>Oh, that was a bit too long.</p>
       <% } %>
+      <button onclick="startRecording()" class="voice-search-btn">
+        <span class="material-symbols-rounded"> mic </span>
+        Voice Search
+      </button>
     </div>
-    <button onclick="startRecording()">Record</button>
     <script src="js/recordAudio.js"></script>
   </body>
 </html>

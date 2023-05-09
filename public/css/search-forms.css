@@ -45,6 +45,7 @@
 .search-form-big {
   display: flex;
   align-items: center;
+  margin-left: 26px;
 }
 
 .search-form-big input {
@@ -106,6 +107,10 @@
   }
 
   /* Big search form */
+  .search-form-big {
+    margin-left: 24px;
+  }
+
   .search-form-big input {
     height: 48px;
     width: 80vw;
