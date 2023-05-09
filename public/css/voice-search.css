@@ -1,0 +1,38 @@
+.voice-search-btn-big {
+  height: 40px;
+  width: 148px;
+  border-radius: 100px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background-color: var(--primary);
+  color: var(--background);
+  font-size: 15px;
+  margin-top: 40px;
+}
+
+.voice-search-btn-big span {
+  margin-right: 6px;
+  margin-left: -2px;
+}
+
+.voice-search-btn-small {
+  height: 40px;
+  width: 148px;
+  border-radius: 100px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background-color: var(--primary);
+  color: var(--background);
+  font-size: 15px;
+}
+
+.voice-search-btn-small span {
+  margin-right: 6px;
+  margin-left: -2px;
+}

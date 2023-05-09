@@ -9,12 +9,7 @@
       <h1 class="big-logo">Ding</h1>
       <%- include("partials/search-form-big.ejs") %> <% if (tl) { %>
       <p>Oh, that was a bit too long.</p>
-      <% } %>
-      <button onclick="startRecording()" class="voice-search-btn">
-        <span class="material-symbols-rounded"> mic </span>
-        Voice Search
-      </button>
+      <% } %> <%- include("partials/voice-search-btn-big.ejs") %>
     </div>
-    <script src="js/recordAudio.js"></script>
   </body>
 </html>
