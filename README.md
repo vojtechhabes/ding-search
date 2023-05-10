@@ -45,7 +45,7 @@ V tomto projektu jsou používány následující npm balíčky:
 - [ ] chatbot pro odpovídání na dotazy na základě webových stránek
 - [x] hlasové vyhledávání
 - [x] použít [pgvector](https://github.com/pgvector/pgvector) pro relevantnější výsledky
-- [ ] vytvorit složku controllers s veškerou hlavní logikou
+- [ ] vytvořit složku controllers s veškerou hlavní logikou
 - [ ] přidat "rychlé aplikace" do vyhledávání (kalkulačka, překladač, atd.)
 
 ## Licence
