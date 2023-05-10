@@ -12,7 +12,7 @@ const storage = multer.diskStorage({
     cb(null, "tmp/");
   },
   filename: (req, file, cb) => {
-    cb(null, Date.now() + "-" + path.extname(file.originalname));
+    cb(null, Date.now() + path.extname(file.originalname));
   },
 });
 const upload = multer({ storage: storage });
@@ -64,7 +64,29 @@ router.get("/suggestions", async (req, res) => {
 });
 
 router.post("/transcription", upload.single("audio"), async (req, res) => {
-  res.json(req.file);
+  const file = req.file;
+  const filePath = file.path;
+
+  if (!file) {
+    res.json({ error: "No file uploaded" });
+    return;
+  }
+
+  if (path.extname(file.originalname) !== ".webm") {
+    fs.unlinkSync(filePath);
+    res.json({ error: "Invalid file type" });
+    return;
+  }
+
+  const response = await openai.createTranscription(
+    fs.createReadStream(filePath),
+    "whisper-1"
+  );
+  const transcription = response.data.text;
+
+  fs.unlinkSync(filePath);
+
+  res.json({ transcription: transcription });
 });
 
 module.exports = router;

@@ -1,3 +1,13 @@
+const isChromium = !!window.chrome;
+
+if (isChromium) {
+  try {
+    document.querySelector(".voice-search-btn-big").style.display = "flex";
+  } catch {
+    document.querySelector(".voice-search-btn-small").style.display = "flex";
+  }
+}
+
 function startRecording() {
   navigator.mediaDevices.getUserMedia({ audio: true }).then((stream) => {
     const mediaRecorder = new MediaRecorder(stream);
@@ -9,17 +19,17 @@ function startRecording() {
     });
 
     mediaRecorder.addEventListener("stop", () => {
-      const audioBlob = new Blob(audioChunks);
+      const audioBlob = new Blob(audioChunks, { type: "audio/webm" });
       const audioUrl = URL.createObjectURL(audioBlob);
       const formData = new FormData();
-      formData.append("audio", audioBlob, "audio.mp3");
+      formData.append("audio", audioBlob, "audio.webm");
       fetch("/intelligence/transcription", {
         method: "POST",
         body: formData,
       })
         .then((response) => response.json())
         .then((data) => {
-          console.log(data);
+          window.location.href = `/search?q=${data.transcription}`;
         });
     });
 
