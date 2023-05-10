@@ -41,12 +41,12 @@ V tomto projektu jsou používány následující npm balíčky:
 
 - [ ] dokončení našeptávání vyhledávání
 - [ ] "nekonečný scroll" s výsledky vyhledávání
-- [ ] about stránka
+- [ ] vytvořit about stránku
 - [ ] chatbot pro odpovídání na dotazy na základě webových stránek
 - [x] hlasové vyhledávání
 - [x] použít [pgvector](https://github.com/pgvector/pgvector) pro relevantnější výsledky
-- [ ] podpora pro více jazyků
-- [ ] personalizované výsledky
+- [ ] vytvorit složku controllers s veškerou hlavní logikou
+- [ ] přidat "rychlé aplikace" do vyhledávání (kalkulačka, překladač, atd.)
 
 ## Licence
 
