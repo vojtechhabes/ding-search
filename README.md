@@ -18,22 +18,22 @@ Cílem projektu Ding Search je vytvořit vyhledávač, který bude schopen vyhle
 
 ## Použité technologie
 
-- [Node.js](https://nodejs.org): open-source framework pro běh JavaScriptového kódu na straně serveru
-- [PostgreSQL](https://www.postgresql.org): databáze, která nabízí široké spektrum funkcí pro správu a ukládání dat a umožňuje uživatelům efektivně ukládat a vyhledávat data
-- [OpenAI API](https://openai.com/blog/openai-api): API pro přístup k pokročilým AI modelům
+- [Node.js](https://nodejs.org): Open-source framework pro běh JavaScriptového kódu na straně serveru.
+- [PostgreSQL](https://www.postgresql.org): Databáze, která nabízí široké spektrum funkcí pro správu a ukládání dat a umožňuje uživatelům efektivně ukládat a vyhledávat data.
+- [OpenAI API](https://openai.com/blog/openai-api): API pro přístup k pokročilým AI modelům.
 - [TensorFlow.js](https://www.tensorflow.org/js): Je open-source knihovna pro strojové učení a práci s neuronovými sítěmi, kterou lze použít v JavaScriptu jak v prohlížeči, tak i na straně serveru pomocí Node.js.
 
 ### npm balíčky
 
 V tomto projektu jsou používány následující npm balíčky:
 
-- [node-postgres](https://www.npmjs.com/package/pg): umožňuje přístup k PostgreSQL databázi
-- [dotenv](https://www.npmjs.com/package/dotenv): načítá proměnné z .env souboru
-- [ejs](https://www.npmjs.com/package/ejs): šablonovací systém pro generování HTML stránek
-- [express](https://www.npmjs.com/package/express): Node.js framework pro tvorbu webových aplikací a API
-- [openai](https://www.npmjs.com/package/openai): umožňuje jednoduchý přístup k OpenAI API
-- [serve-favicon](https://www.npmjs.com/package/serve-favicon): poskytuje middleware pro favicony webových stránek
-- [xss](https://www.npmjs.com/package/xss): ochrana proti XSS útokům, tedy proti vkládání škodlivého kódu do uživatelských vstupů, které se následně vykreslují na stránce
+- [node-postgres](https://www.npmjs.com/package/pg): Umožňuje přístup k PostgreSQL databázi.
+- [dotenv](https://www.npmjs.com/package/dotenv): Načítá proměnné z .env souboru.
+- [ejs](https://www.npmjs.com/package/ejs): Šablonovací systém pro generování HTML stránek.
+- [express](https://www.npmjs.com/package/express): Node.js framework pro tvorbu webových aplikací a API.
+- [openai](https://www.npmjs.com/package/openai): Umožňuje jednoduchý přístup k OpenAI API.
+- [serve-favicon](https://www.npmjs.com/package/serve-favicon): Poskytuje middleware pro favicony webových stránek.
+- [xss](https://www.npmjs.com/package/xss): Ochrana proti XSS útokům, tedy proti vkládání škodlivého kódu do uživatelských vstupů, které se následně vykreslují na stránce.
 - [@tensorflow/tfjs](https://www.npmjs.com/package/@tensorflow/tfjs): Jedná se o npm balíček pro použití knihovny TensorFlow.js v projektu.
 - [@tensorflow-models/universal-sentence-encoder](https://www.npmjs.com/package/@tensorflow-models/universal-sentence-encoder): Balíček umožňující použití modelu Universal Sentence Encoder.
 
