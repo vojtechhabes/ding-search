@@ -1,0 +1,43 @@
+/* Big voice search button */
+.voice-search-btn-big {
+  height: 40px;
+  width: 148px;
+  border-radius: 100px;
+  border: none;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background-color: var(--primary);
+  color: var(--background);
+  font-size: 15px;
+  margin-top: 40px;
+  transition: 0.1s ease-in-out;
+  display: none;
+}
+
+.voice-search-btn-big span {
+  margin-right: 6px;
+  margin-left: -2px;
+}
+
+/* Small voice search button */
+.voice-search-btn-small {
+  margin-left: min(1.5vw, 14px);
+  height: 40px;
+  width: 40px;
+  border-radius: 100px;
+  border: none;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background-color: var(--background);
+  color: var(--primary);
+  font-size: 15px;
+  display: none;
+}
+
+@media only screen and (max-width: 600px) {
+  .voice-search-btn-small {
+    background-color: transparent;
+  }
+}
