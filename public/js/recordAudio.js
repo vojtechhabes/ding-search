@@ -78,7 +78,7 @@ async function startRecording() {
 
     setTimeout(() => {
       mediaRecorder.stop();
-    }, 2000);
+    }, 5000);
   } catch (error) {
     console.error(
       "There has been a problem with your getUserMedia operation:",
