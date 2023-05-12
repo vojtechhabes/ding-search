@@ -9,15 +9,7 @@ async function startRecording() {
     const mediaRecorder = new MediaRecorder(stream);
     mediaRecorder.start();
 
-    try {
-      document.querySelector(".voice-search-btn-big").style.backgroundColor =
-        "#f93227";
-    } catch {
-      document.querySelector(".voice-search-btn-small").style.backgroundColor =
-        "#f93227";
-      document.querySelector(".voice-search-btn-small").style.color =
-        "var(--background)";
-    }
+    document.querySelector(".voice-search-btn").style.color = "#f93227";
 
     const audioChunks = [];
 
@@ -26,16 +18,8 @@ async function startRecording() {
     });
 
     mediaRecorder.addEventListener("stop", async () => {
-      try {
-        document.querySelector(".voice-search-btn-big").style.backgroundColor =
-          "var(--primary)";
-      } catch {
-        document.querySelector(
-          ".voice-search-btn-small"
-        ).style.backgroundColor = "var(--background)";
-        document.querySelector(".voice-search-btn-small").style.color =
-          "var(--primary)";
-      }
+      document.querySelector(".voice-search-btn").style.color =
+        "var(--primary)";
 
       const audioBlob = new Blob(audioChunks, { type: "audio/wav" });
       const audioUrl = URL.createObjectURL(audioBlob);

@@ -12,7 +12,8 @@
     placeholder="What's on your mind?"
     value="<%= query %>"
   />
-  <button type="submit">
+  <%- include("voice-search-btn.ejs") %>
+  <button type="submit" class="search-btn-big">
     <span class="material-symbols-rounded"> arrow_right_alt </span>
   </button>
 </form>
