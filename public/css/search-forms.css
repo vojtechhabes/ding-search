@@ -91,21 +91,16 @@
   font-size: 20px;
 }
 
-.suggestions {
-  display: none;
-}
-
 @media only screen and (max-width: 600px) {
   /* Small search form */
   .search-form-small input {
     height: 40px;
-    width: 60vw;
+    width: 50vw;
   }
 
   .search-form-small button {
     height: 40px;
     width: 40px;
-    margin-left: -40px;
   }
 
   /* Big search form */
