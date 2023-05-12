@@ -4,6 +4,7 @@ const IntelligenceController = require("../controllers/intelligenceController");
 const multer = require("multer");
 const fs = require("fs");
 const path = require("path");
+const ffmpeg = require("fluent-ffmpeg");
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -13,7 +14,16 @@ const storage = multer.diskStorage({
     cb(null, Date.now() + path.extname(file.originalname));
   },
 });
-const upload = multer({ storage: storage });
+const upload = multer({
+  storage: storage,
+  fileFilter: function (req, file, callback) {
+    if (path.extname(file.originalname) !== ".wav") {
+      return callback(new Error("Only wav files are allowed"));
+    }
+    callback(null, true);
+  },
+  limits: { fileSize: 50000 },
+});
 
 router.get("/suggestions", IntelligenceController.getSuggestions);
 

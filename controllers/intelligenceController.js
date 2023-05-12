@@ -3,6 +3,7 @@ const dotenv = require("dotenv");
 const { Configuration, OpenAIApi } = require("openai");
 const fs = require("fs");
 const path = require("path");
+const ffmpeg = require("fluent-ffmpeg");
 
 dotenv.config();
 
@@ -58,39 +59,34 @@ class IntelligenceController {
     const filePath = file.path;
 
     if (!file) {
-      res.json({ error: "No file uploaded" });
-      return;
-    }
-
-    if (path.extname(file.originalname) !== ".webm") {
       fs.unlinkSync(filePath);
-      res.json({ error: "Invalid file type" });
+      console.log("No file uploaded");
+      res.status(400).json({ error: "No file uploaded" });
       return;
     }
 
-    const response = await openai.createTranscription(
-      fs.createReadStream(filePath),
-      "whisper-1"
-    );
-    const transcription = response.data.text;
+    const metadata = await new Promise((resolve, reject) => {
+      ffmpeg.ffprobe(filePath, function (err, metadata) {
+        if (err) {
+          reject(err);
+        } else {
+          resolve(metadata);
+        }
+      });
+    });
 
-    fs.unlinkSync(filePath);
+    let duration = metadata.format.duration;
 
-    res.json({ transcription: transcription });
-  }
-
-  static async getTranscription(req, res) {
-    const file = req.file;
-    const filePath = file.path;
-
-    if (!file) {
-      res.json({ error: "No file uploaded" });
-      return;
+    if (duration == "N/A") {
+      const sampleRate = metadata.streams[0].sample_rate;
+      const sizeBytes = metadata.format.size;
+      const sizeBits = sizeBytes * 8;
+      duration = sizeBits / sampleRate;
     }
 
-    if (path.extname(file.originalname) !== ".webm") {
+    if (duration > 6) {
       fs.unlinkSync(filePath);
-      res.json({ error: "Invalid file type" });
+      res.status(400).json({ error: "Audio too long" });
       return;
     }
 
