@@ -1,15 +1,10 @@
-const isChromium = true;
-
-if (isChromium) {
-  try {
-    document.querySelector(".voice-search-btn-big").style.display = "flex";
-  } catch {
-    document.querySelector(".voice-search-btn-small").style.display = "flex";
-  }
-}
+const isChromium = !!window.chrome;
 
 async function startRecording() {
   try {
+    if (!isChromium) {
+      alert("For the best experience, please use Chrome browser.");
+    }
     const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
     const mediaRecorder = new MediaRecorder(stream);
     mediaRecorder.start();
@@ -70,7 +65,7 @@ async function startRecording() {
           error
         );
         alert(
-          "There has been a problem while processing your audio.\nAre you using Chrome browser?"
+          "There has been a problem while processing your audio.\n\nAre you using Chrome browser?"
         );
         window.location.reload();
       }

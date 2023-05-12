@@ -22,7 +22,7 @@ const upload = multer({
     }
     callback(null, true);
   },
-  limits: { fileSize: 50000 },
+  limits: { fileSize: 200000 },
 });
 
 router.get("/suggestions", IntelligenceController.getSuggestions);
