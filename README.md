@@ -47,6 +47,7 @@ V tomto projektu jsou používány následující npm balíčky:
 - [x] použít [pgvector](https://github.com/pgvector/pgvector) pro relevantnější výsledky
 - [x] vytvořit složku controllers s veškerou hlavní logikou
 - [ ] přidat "rychlé aplikace" do vyhledávání (kalkulačka, překladač, atd.)
+- [ ] přidat sběr dat o používání
 
 ## Licence
 
