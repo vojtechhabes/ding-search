@@ -3,19 +3,19 @@
   display: flex;
   align-items: center;
   margin-left: min(5vw, 40px);
+  border-radius: 100px;
+  background-color: var(--background);
 }
 
 .search-form-small input {
   height: 48px;
-  width: 50vw;
-  max-width: 450px;
-  border-radius: 100px;
+  width: 44vw;
+  max-width: 420px;
   border: none;
   font-size: 16px;
   padding: 0 14px;
-  flex: 1;
   outline: none;
-  background-color: var(--background);
+  background-color: transparent;
   font-family: "Inter", sans-serif;
 }
 
@@ -32,7 +32,6 @@
   width: 48px;
   border-radius: 100px;
   border: none;
-  margin-left: -48px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -45,7 +44,10 @@
 .search-form-big {
   display: flex;
   align-items: center;
-  margin-left: 26px;
+  box-shadow: 0 0 0 2px var(--container);
+  background-color: var(--background);
+  border-radius: 100px;
+  transition: box-shadow 0.1s ease-in-out;
 }
 
 .search-form-big input {
@@ -54,14 +56,11 @@
   max-width: 500px;
   border-radius: 100px;
   border: none;
-  box-shadow: 0 0 0 2px var(--container);
   font-size: 18px;
   padding: 0 16px;
-  flex: 1;
   outline: none;
-  background-color: var(--background);
+  background-color: transparent;
   font-family: "Inter", sans-serif;
-  transition: box-shadow 0.1s ease-in-out;
   -webkit-appearance: none;
 }
 
@@ -73,8 +72,8 @@
   color: transparent;
 }
 
-.search-form-big input:hover,
-.search-form-big input:focus {
+.search-form-big:hover,
+.search-form-big:focus-within {
   box-shadow: 0 0 0 4px var(--container);
 }
 
@@ -83,7 +82,6 @@
   width: 52px;
   border-radius: 100px;
   border: none;
-  margin-left: -52px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -91,6 +89,10 @@
   background-color: var(--primary);
   color: var(--background);
   font-size: 20px;
+}
+
+.suggestions {
+  display: none;
 }
 
 @media only screen and (max-width: 600px) {
@@ -107,19 +109,14 @@
   }
 
   /* Big search form */
-  .search-form-big {
-    margin-left: 24px;
-  }
-
   .search-form-big input {
     height: 48px;
-    width: 80vw;
+    width: 75vw;
     font-size: 16px;
   }
 
   .search-form-big button {
     height: 48px;
     width: 48px;
-    margin-left: -48px;
   }
 }
