@@ -42,6 +42,7 @@
 
 /* Big search form */
 .search-form-big {
+  position: relative;
   display: flex;
   align-items: center;
   box-shadow: 0 0 0 2px var(--container);
@@ -89,6 +90,19 @@
   background-color: var(--primary);
   color: var(--background);
   font-size: 20px;
+}
+
+.search-form-big .suggestions {
+  position: absolute; /* Add this to position the suggestions container */
+  margin-top: 10px;
+  top: 100%; /* Position it below the input */
+  left: 0;
+  width: 100%;
+  background-color: var(--container);
+  border-radius: 26px;
+  padding: 10px;
+  z-index: 1; /* Add this to make sure the suggestions appear above other elements */
+  display: none; /* Hide it by default */
 }
 
 @media only screen and (max-width: 600px) {

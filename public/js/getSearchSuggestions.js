@@ -8,6 +8,7 @@ searchInput.addEventListener("input", () => {
     const searchTerm = searchInput.value;
     if (!searchTerm) {
       suggestionsList.innerHTML = "";
+      document.querySelector(".suggestions").style.display = "none";
       return;
     }
     try {
@@ -18,6 +19,14 @@ searchInput.addEventListener("input", () => {
       }
       const suggestions = await response.json();
       suggestionsList.innerHTML = "";
+      console.log("Suggestions:", suggestions);
+      console.log("Suggestions length:", suggestions.length);
+      if (suggestions.length == 0) {
+        document.querySelector(".suggestions").style.display = "none";
+        return;
+      } else {
+        document.querySelector(".suggestions").style.display = "block";
+      }
       suggestions.forEach((suggestion) => {
         const li = document.createElement("li");
         li.textContent = suggestion;
