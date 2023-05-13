@@ -39,7 +39,7 @@ V tomto projektu jsou používány následující npm balíčky:
 
 ## Plánované změny a funkce
 
-- [ ] dokončení našeptávání vyhledávání
+- [x] dokončení našeptávání vyhledávání
 - [ ] "nekonečný scroll" s výsledky vyhledávání
 - [x] vytvořit about stránku
 - [ ] chatbot pro odpovídání na dotazy na základě webových stránek
