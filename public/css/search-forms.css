@@ -5,6 +5,7 @@
   margin-left: min(5vw, 40px);
   border-radius: 100px;
   background-color: var(--background);
+  position: relative; /* Added */
 }
 
 .search-form-small input {
@@ -92,25 +93,29 @@
   font-size: 20px;
 }
 
-.search-form-big .suggestions {
+/* Suggestions */
+.suggestions {
   position: absolute;
   margin-top: 10px;
   top: 100%;
   left: 0;
   width: 100%;
-  background-color: var(--container);
+  background-color: var(--container-light);
   border-radius: 22px;
   z-index: 1;
   display: none;
+  backdrop-filter: blur(50px);
+  -webkit-backdrop-filter: blur(50px);
+  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.15);
 }
 
-.search-form-big .suggestions ul {
+.suggestions ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.search-form-big .suggestions ul li {
+.suggestions ul li {
   padding: 14px;
   text-decoration: none;
   border-radius: 22px;
@@ -120,10 +125,11 @@
   display: flex;
   align-items: center;
   cursor: pointer;
+  transition: 0.1s ease-in-out;
 }
 
-.search-form-big .suggestions ul li:hover {
-  background-color: var(--container);
+.suggestions ul li:hover {
+  background-color: var(--container-light);
 }
 
 @media only screen and (max-width: 600px) {

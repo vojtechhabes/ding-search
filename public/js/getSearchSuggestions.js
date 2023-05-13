@@ -1,7 +1,21 @@
 const searchInput = document.querySelector("#searchInput");
 const suggestionsList = document.querySelector("#suggestionsList");
 
-searchInput.addEventListener("input", async () => {
+searchInput.addEventListener("input", () => {
+  getSuggestions();
+});
+
+document.addEventListener("click", (event) => {
+  if (document.activeElement != searchInput) {
+    document.querySelector(".suggestions").style.display = "none";
+  }
+});
+
+searchInput.addEventListener("focus", () => {
+  getSuggestions();
+});
+
+async function getSuggestions() {
   const searchTerm = searchInput.value;
   if (!searchTerm || searchTerm == "") {
     suggestionsList.innerHTML = "";
@@ -35,4 +49,4 @@ searchInput.addEventListener("input", async () => {
   } catch (error) {
     console.error("Error fetching suggestions:", error);
   }
-});
+}
