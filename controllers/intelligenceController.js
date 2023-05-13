@@ -4,6 +4,8 @@ const { Configuration, OpenAIApi } = require("openai");
 const fs = require("fs");
 const path = require("path");
 const ffmpeg = require("fluent-ffmpeg");
+const xml2js = require("xml2js");
+const e = require("express");
 
 dotenv.config();
 
@@ -18,38 +20,32 @@ class IntelligenceController {
 
     query = xss(query);
 
-    if (
-      !query ||
-      query.length > process.env.MAX_QUERY_LENGTH ||
-      query.length < 3 ||
-      query.split("").every((char) => char === query[0])
-    ) {
+    if (!query || query.length > process.env.MAX_QUERY_LENGTH) {
       res.json([]);
       return;
     }
 
-    let completion = await openai.createCompletion({
-      model: "text-ada-001",
-      prompt: `Complete this search query:\nquery: ${query}`,
-      temperature: 0.1,
-      max_tokens: 10,
-      stop: ["\n"],
+    const response = await fetch(
+      `http://suggestqueries.google.com/complete/search?output=toolbar&hl=en&q=${query}`
+    );
+    const data = await response.text();
+
+    var extractedData = [];
+    var parser = new xml2js.Parser();
+    parser.parseString(data, function (err, result) {
+      try {
+        result.toplevel.CompleteSuggestion.forEach((suggestion) => {
+          const sanitizedSuggestion = xss(suggestion.suggestion[0].$.data);
+          extractedData.push(sanitizedSuggestion);
+        });
+      } catch (error) {
+        extractedData = [query];
+      }
     });
 
-    completion = xss(completion.data.choices[0].text);
-    completion = completion.replace(/"/g, "");
+    extractedData = extractedData.slice(0, 5);
 
-    if (
-      completion === query ||
-      completion.length > process.env.MAX_QUERY_LENGTH
-    ) {
-      res.json([]);
-      return;
-    }
-
-    let suggestions = [query + completion];
-
-    res.json(suggestions);
+    res.json(extractedData);
 
     return;
   }

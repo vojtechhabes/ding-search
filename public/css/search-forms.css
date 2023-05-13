@@ -93,16 +93,37 @@
 }
 
 .search-form-big .suggestions {
-  position: absolute; /* Add this to position the suggestions container */
+  position: absolute;
   margin-top: 10px;
-  top: 100%; /* Position it below the input */
+  top: 100%;
   left: 0;
   width: 100%;
   background-color: var(--container);
-  border-radius: 26px;
-  padding: 10px;
-  z-index: 1; /* Add this to make sure the suggestions appear above other elements */
-  display: none; /* Hide it by default */
+  border-radius: 22px;
+  z-index: 1;
+  display: none;
+}
+
+.search-form-big .suggestions ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.search-form-big .suggestions ul li {
+  padding: 14px;
+  text-decoration: none;
+  border-radius: 22px;
+  font-size: 16px;
+  padding: 0 20px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.search-form-big .suggestions ul li:hover {
+  background-color: var(--container);
 }
 
 @media only screen and (max-width: 600px) {
