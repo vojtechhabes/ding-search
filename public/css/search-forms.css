@@ -100,13 +100,13 @@
   top: 100%;
   left: 0;
   width: 100%;
-  background-color: var(--container-light);
+  background-color: var(--background);
   border-radius: 22px;
   z-index: 1;
   display: none;
   backdrop-filter: blur(50px);
   -webkit-backdrop-filter: blur(50px);
-  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.15);
+  box-shadow: 0 3px 8px 1px var(--container);
 }
 
 .suggestions ul {

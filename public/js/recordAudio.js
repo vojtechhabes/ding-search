@@ -1,10 +1,13 @@
 const isChromium = !!window.chrome;
+if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+  document.querySelector(".voice-search-btn").style.display = "none";
+}
 
 async function startRecording() {
+  if (!isChromium) {
+    alert("For the best experience, please use Chrome browser.");
+  }
   try {
-    if (!isChromium) {
-      alert("For the best experience, please use Chrome browser.");
-    }
     const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
     const mediaRecorder = new MediaRecorder(stream);
     mediaRecorder.start();
@@ -59,9 +62,19 @@ async function startRecording() {
       mediaRecorder.stop();
     }, 5000);
   } catch (error) {
-    console.error(
-      "There has been a problem with your getUserMedia operation:",
-      error
-    );
+    if (error.name === "NotAllowedError") {
+      alert(
+        "Microphone access denied. Please allow access to the microphone and try again."
+      );
+    } else if (error.name === "NotFoundError") {
+      alert(
+        "No microphone found. Please make sure you have a microphone connected and try again."
+      );
+    } else {
+      console.error(
+        "There has been a problem with your getUserMedia operation:",
+        error
+      );
+    }
   }
 }

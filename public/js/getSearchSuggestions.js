@@ -23,15 +23,12 @@ async function getSuggestions() {
     return;
   }
   try {
-    console.log("Fetching suggestions...");
     const response = await fetch(`/intelligence/suggestions?q=${searchTerm}`);
     if (!response.ok) {
       throw new Error("Network response was not ok");
     }
     const suggestions = await response.json();
     suggestionsList.innerHTML = "";
-    console.log("Suggestions:", suggestions);
-    console.log("Suggestions length:", suggestions.length);
     if (suggestions.length == 0) {
       document.querySelector(".suggestions").style.display = "none";
       return;
