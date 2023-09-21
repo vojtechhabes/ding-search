@@ -1,20 +1,20 @@
 # Ding Search
 
-Vyhledávač napsaný v Node.js, který využívá data sesbíraná [web crawlerem](https://github.com/vojhab/web-crawler).
+Vyhledávač napsaný v Node.js, který využívá data sesbíraná [web crawlerem](https://github.com/vojtechhabes/web-crawler).
 
 ![Ding search screenshot](./ding-search-safari.png)
 
 ## Dokumentace
 
-Dokumentaci tohoto projektu najdete na [GitHub Wiki](https://github.com/vojhab/ding-search/wiki), ale ještě není zcela dokončena.
+Dokumentaci tohoto projektu najdete na [GitHub Wiki](https://github.com/vojtechhabes/ding-search/wiki), ale ještě není zcela dokončena.
 
 ## Prezentace
 
-Prezentace Ding search a [web crawleru](https://github.com/vojhab/web-crawler) se nachází na [vojhab.page.link/pva-prezentace](https://vojhab.page.link/pva-prezentace).
+Prezentace Ding search a [web crawleru](https://github.com/vojtechhabes/web-crawler) se nachází na [vojhab.page.link/pva-prezentace](https://vojhab.page.link/pva-prezentace).
 
 ## Cíl projektu
 
-Cílem projektu Ding Search je vytvořit vyhledávač, který bude schopen vyhledávat webové stránky a nabízet uživatelům relevantní výsledky vyhledávání na základě požadavků, které zadají. Vyhledávač je napsán v Node.js a využívá data sesbíraná [web crawlerem](https://github.com/vojhab/web-crawler).
+Cílem projektu Ding Search je vytvořit vyhledávač, který bude schopen vyhledávat webové stránky a nabízet uživatelům relevantní výsledky vyhledávání na základě požadavků, které zadají. Vyhledávač je napsán v Node.js a využívá data sesbíraná [web crawlerem](https://github.com/vojtechhabes/web-crawler).
 
 ## Použité technologie
 
@@ -55,6 +55,6 @@ Tento projekt je pod licencí [MIT](LICENSE).
 
 ## Tvůrce
 
-[Vojtěch Habeš](https://www.github.com/vojhab)
+[Vojtěch Habeš](https://www.github.com/vojtechhabes)
 
 habes.vo.2022@ssps.cz
